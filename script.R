@@ -37,6 +37,11 @@ ext(green) <- ext(red)
 stack <- c(nir, red, green)
 im.plotRGB(stack, 1, 2, 3)
 
+nir_resampled <- resample(nir, red, method = "bilinear")
+stack <- c(nir, red, red)
+im.plotRGB(stack, 1, 2, 3)
+
+
 #---- 
 
 setwd("/Users/ducciorocchini/Desktop/dji_mavic3/immagine_2/TIF")
@@ -76,5 +81,13 @@ ext(green)
 ext(nir) <- ext(red)
 ext(green) <- ext(red)
 
-stack <- c(nir, red, green)
+nir_resampled <- resample(nir, red, method = "bilinear")
+stack <- c(nir_resampled, red, red)
 im.plotRGB(stack, 1, 2, 3)
+
+# comparison
+stack <- c(nir, red, red)
+im.plotRGB(stack, 1, 2, 3)
+
+
+
